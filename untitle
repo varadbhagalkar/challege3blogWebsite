@@ -1,0 +1,61 @@
+db.products.insert(
+    {
+        _id:3,
+        name:"Rubber",
+        price:1.30,
+        stock:43,
+        reviews:[
+            {
+                authorName:"Salty",
+                rating:5,
+                review:"Best rubber ever!"
+            },
+            {
+                authorName:"John",
+                rating:5,
+                review:"Awesome rubber!"
+            }
+        ]
+    }
+)
+
+db.products.insertOne(
+    {
+        _id:2,
+        name:"Pencil",
+        price:0.8,
+        stock:12,
+        reviews:[
+            {
+                authorName:"Smoothy",
+                rating:5,
+                review:"Best Pencil"
+            },
+            {
+                authorName:"Saul",
+                rating:5,
+                review:"Awesome"
+            }
+        ]
+    }
+)
+
+db.products.updateOne({_id:1},
+    {
+        $set:{
+            reviews:[
+                {
+                    authorName:"Crusty",
+                    rating:5,
+                    review:"Best Pen"
+                },
+                {
+                    authorName:"Dorty",
+                    rating:5,
+                    review:"Best Pen"
+                }
+            ]
+        }
+    }
+
+)
