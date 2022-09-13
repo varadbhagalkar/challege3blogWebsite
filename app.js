@@ -57,15 +57,18 @@ app.post("/compose",function(req,res){
 
 app.get("/posts/:postTitle",function(req,res){
   const urlEnd=lodash.lowerCase(req.params.postTitle)
-  for(post of postArr){
-    const title=lodash.lowerCase(post.title)
-    if(title==urlEnd){
-      res.render("post",{postTitle:post.title,postContent:post.content})
+  post.find(function(err,postArr){
+    for(Apost of postArr){
+      const title=lodash.lowerCase(Apost.title)
+      if(title==urlEnd){
+        res.render("post",{postTitle:Apost.title,postContent:Apost.content})
+      }
     }
-  }
+  })
+  
 })
 
 
-app.listen(process.env.PORT, function() {
+app.listen(3000, function() {
   console.log("Server started on port 3000");
 });
