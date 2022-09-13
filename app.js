@@ -27,8 +27,9 @@ const post=mongoose.model("post",postSchema)
 
 
 app.get("/",function(req,res){
-  postArr=post.find();
-  res.render("home",{homePara1:homeStartingContent,posts:postArr})
+  post.find(function(err,postArr){
+    res.render("home",{homePara1:homeStartingContent,posts:postArr})
+  });
 })
 
 app.get("/about",function(req,res){
@@ -50,7 +51,7 @@ app.post("/compose",function(req,res){
     title:title,
     content:content
   })
-  post.save()
+  newpost.save()
   res.redirect("/")
 })
 
